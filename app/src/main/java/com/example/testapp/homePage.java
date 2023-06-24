@@ -1,10 +1,13 @@
 
 package com.example.testapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
@@ -13,15 +16,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.net.URI;
+
 
 public class homePage extends AppCompatActivity {
-    ImageView aboutBtn ;
+    ImageView aboutBtn, updateBtn;
     Button btnQub,btn33,btn100,btn500,btnInf;
     TextView counter;
 
     CardView countableBtn,refresh;
 
     Vibrator vibrate;
+
+    AlertDialog.Builder alertdialog;
     int count = 0;
     int limit = 0;
 
@@ -31,6 +38,7 @@ public class homePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         aboutBtn = findViewById(R.id.about);
+        updateBtn = findViewById(R.id.update);
         btnQub = findViewById(R.id. btnQub);
 
         counter = findViewById( R.id.counter);
@@ -52,6 +60,36 @@ public class homePage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent e =new Intent(homePage.this, About_Page.class);
                 startActivity(e);
+            }
+        });
+
+        updateBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertdialog = new AlertDialog.Builder(homePage.this);
+                alertdialog.setIcon(R.drawable.update);
+                alertdialog.setTitle("Update");
+                alertdialog.setMessage("Do you want to update Tasbih App?");
+
+                alertdialog.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Uri uri = Uri.parse("https://republic-of-legends.netlify.app/projects/android/tasbih.html");
+                        Intent u = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(u);
+
+                    }
+                });
+
+                alertdialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = alertdialog.create();
+                dialog.show();
             }
         });
         btnQub.setOnClickListener(new View.OnClickListener() {

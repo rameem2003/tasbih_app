@@ -25,8 +25,15 @@
                 android:text="Count"
                 android:fontFamily="@font/font1"
                 android:textSize="50sp"
-                android:layout_weight="9"
+                android:layout_weight="8"
                 android:textColor="#EDE4E4"/>
+            <ImageView
+                android:id="@+id/update"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:src="@drawable/baseline_get_app_24"/>
+
             <ImageView
                 android:id="@+id/about"
                 android:layout_width="0dp"
