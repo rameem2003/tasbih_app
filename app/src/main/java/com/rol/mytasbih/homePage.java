@@ -1,5 +1,5 @@
 
-package com.example.testapp;
+package com.rol.mytasbih;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,8 +27,6 @@ import com.google.android.play.core.install.InstallStateUpdatedListener;
 import com.google.android.play.core.install.model.AppUpdateType;
 import com.google.android.play.core.install.model.InstallStatus;
 import com.google.android.play.core.install.model.UpdateAvailability;
-
-import java.net.URI;
 
 
 public class homePage extends AppCompatActivity {

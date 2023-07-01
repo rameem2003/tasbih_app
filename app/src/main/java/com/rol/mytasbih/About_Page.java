@@ -1,4 +1,4 @@
-package com.example.testapp;
+package com.rol.mytasbih;
 
 import androidx.appcompat.app.AppCompatActivity;
 
