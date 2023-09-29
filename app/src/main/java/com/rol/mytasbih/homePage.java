@@ -8,6 +8,7 @@ import androidx.cardview.widget.CardView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Vibrator;
@@ -32,7 +33,7 @@ import com.google.android.play.core.install.model.UpdateAvailability;
 public class homePage extends AppCompatActivity {
     ImageView aboutBtn, updateBtn;
     Button btnQub,btn33,btn100,btn500,btnInf;
-    TextView counter;
+    TextView counter, setTarget;
 
     CardView countableBtn,refresh;
 
@@ -54,9 +55,10 @@ public class homePage extends AppCompatActivity {
         checkAppUpdate();
         aboutBtn = findViewById(R.id.about);
         updateBtn = findViewById(R.id.update);
-        btnQub = findViewById(R.id. btnQub);
+        btnQub = findViewById(R.id.btnQub);
 
         counter = findViewById( R.id.counter);
+        setTarget = findViewById(R.id.setTarget);
         countableBtn = findViewById(R.id.countableBtn);
         refresh = findViewById(R.id.refresh);
 
@@ -132,6 +134,7 @@ public class homePage extends AppCompatActivity {
                     count++;
                 } else {
                     vibrate.vibrate(150);
+                    counter.setTextColor(Color.parseColor("#c0392b"));
                     Toast.makeText(homePage.this, "Limit Fullfill", Toast.LENGTH_LONG).show();
                 }
 
@@ -144,8 +147,10 @@ public class homePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 count = 0;
+                limit = 0;
                 counter.setText(String.valueOf(count));
-
+                counter.setTextColor(Color.parseColor("#ffffff"));
+                setTarget.setText("");
                 vibrate.vibrate(150);
             }
         });
@@ -154,6 +159,7 @@ public class homePage extends AppCompatActivity {
            @Override
            public void onClick(View view) {
                limit = 33;
+               setTarget.setText("Set Target " + limit);
            }
        });
 
@@ -161,18 +167,21 @@ public class homePage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 limit = 100;
+                setTarget.setText("Set Target " + limit);
             }
         });
         btn500.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 limit = 500;
+                setTarget.setText("Set Target " + limit);
             }
         });
         btnInf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 limit = 0;
+                setTarget.setText("Set Target " + limit);
             }
         });
 

@@ -51,14 +51,23 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/counter"
                 android:text="0"
-                android:textSize="140sp"
+                android:textSize="130sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:fontFamily="@font/digit"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/setTarget"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:text=""/>
 
         </LinearLayout>
 
